@@ -1,0 +1,9 @@
+
+<div class="comentario2">
+    <% @comments.each do |comment| %>
+    <p>
+    <div class="nombre"><%= comment.usser.name %></div>
+    <div  class="texto-comentario"><%= comment.content %></div>
+    </p>
+    <% end %>
+</div>

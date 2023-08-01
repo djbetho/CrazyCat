@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Comeents</h1>
+
+<div id="comeents">
+  <% @comeents.each do |comeent| %>
+    <%= render comeent %>
+    <p>
+      <%= link_to "Show this comeent", comeent %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New comeent", new_comeent_path %>

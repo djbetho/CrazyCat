@@ -1,0 +1,19 @@
+<div id="<%= dom_id poost %>">
+
+
+  <p> 
+     <% if poost.image.persisted? %>
+     <%= image_tag poost.image , class:"foto-show"%>
+      <%end%>
+  </p>
+
+  <div>
+  <p class="titulo container w-50" >
+    <%= poost.title%>
+  </p>
+
+  <p class="descripcion container w-50">
+    <%= poost.description %>
+  </p>
+   </div>
+</div>

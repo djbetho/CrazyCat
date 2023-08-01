@@ -1,0 +1,49 @@
+ <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid"><%= link_to 'Crazy 4 Cat', root_path, class: 'navbar-brand' %> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    
+          
+ 
+      </ul>
+      <ul class="navbar-nav ms-auto mb-5 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+          <% if usser_signed_in? %> 
+              Hola <%= current_usser.nickname %> 
+            <% if current_usser.avatar %>
+              <%=  image_tag current_usser.avatar, class:'rounded-circle', height: "40px", width: "40px"  %> 
+            <% else%>
+               <img src="https://placehold.co/40x40" alt="Avatar" class='rounded-circle', height="40px", width="40px" >
+
+            <% end %>
+
+          <% else %> Dale registrate o conectate 
+          <% end %> </a>
+          <ul class="dropdown-menu">
+          <% if usser_signed_in? %>
+              <li>
+
+                <%= link_to 'Editar Perfil',  edit_usser_registration_path, class: 'dropdown-item'%>
+
+              </li>
+              <li>
+                <%= button_to 'Cerrar sesión', destroy_usser_session_path, class: 'dropdown-item',method: :delete %>
+              </li>
+              <% else %> 
+              <li>
+              <%= link_to 'Iniciar sesión', new_usser_session_path, class: 'dropdown-item'%>
+              </li>
+              <li>
+              <hr class="dropdown-divider">
+              </li>
+            <li><%= link_to 'Registro', new_usser_registration_path, class: 'dropdown-item'%> </li><% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
