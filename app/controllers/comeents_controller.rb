@@ -8,7 +8,7 @@ class ComeentsController < ApplicationController
 
   # GET /comeents/1 or /comeents/1.json
   def show
-    @comeent = Comment.find(params[:id])
+    @comeent = Comeent.find(params[:id])
 
   end
 

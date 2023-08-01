@@ -17,7 +17,7 @@ class PoostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create poost" do
     assert_difference("Poost.count") do
-      post poosts_url, params: { poost: { description: @poost.description, image: @poost.image, usser_id: @poost.usser_id } }
+      poost poosts_url, params: { poost: { description: @poost.description, image: @poost.image, usser_id: @poost.usser_id } }
     end
 
     assert_redirected_to poost_url(Poost.last)

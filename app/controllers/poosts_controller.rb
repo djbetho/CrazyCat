@@ -3,15 +3,15 @@ class PoostsController < ApplicationController
 
   # GET /poosts or /poosts.json
   def index
-    @posts = Poost.all
+    @poosts = Poost.all
   end
 
   # GET /poosts/1 or /poosts/1.json
   def show
-    @post = Poost.find(params[:id])
+    @poost = Poost.find(params[:id])
 
-    @comment = Comeent.new
-    @comments = @post.comeents
+    @comeent = Comeent.new
+    @comeents = @poost.comeents
 
   end
 

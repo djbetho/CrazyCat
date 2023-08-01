@@ -17,7 +17,7 @@ class ComeentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create comeent" do
     assert_difference("Comeent.count") do
-      post comeents_url, params: { comeent: { content: @comeent.content, poost_id: @comeent.poost_id, usser_id: @comeent.usser_id } }
+      poost comeents_url, params: { comeent: { content: @comeent.content, poost_id: @comeent.poost_id, usser_id: @comeent.usser_id } }
     end
 
     assert_redirected_to comeent_url(Comeent.last)

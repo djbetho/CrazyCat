@@ -3,15 +3,15 @@
 
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<%= render @poost %>
 
-<%= form_with(model: @comment, local: true) do |f| %>
-<% if @comment.errors.any? %>
+<%= form_with(model: @comeent, local: true) do |f| %>
+<% if @comeent.errors.any? %>
   <div id = 'error_explanation'>
   <h2>Este comentario no se pudo crear por las siguientes
   razones</h2>
   <ul>
-    <% @comment.errors.full_messages.each do |msg|%>
+    <% @comeent.errors.full_messages.each do |msg|%>
     <li><%= msg %></li>
     <% end %>
   </ul>
@@ -20,7 +20,7 @@
  
   <%= form_with model: @poost.comeents.build do |form| %>
     <%= form.text_field :poost_id, value: @poost_id%>
-    <%= form.text_field :comments %>
+    <%= form.text_field :comeents %>
   <%= form.submit %>
 <% end %>
 
@@ -30,17 +30,17 @@
  <div class="reaccion">
     <% Poost::Kinds.each do |kind| %>
       <%= button_to "#{Poost::KindsSpanish[kind]}",
-         user_reaction_path(post_id: @post.id, reaction_type:
-      "post", kind: kind), method: :post %>
+         user_reaction_path(poost_id: @poost.id, reaction_type:
+      "poost", kind: kind), method: :poost %>
     <% end %>
   </div>
 
 <div>
   <div class="edits">
-  <%= link_to "Edit this post", edit_poost_path(@post) %> |
-  <%= link_to "Back to posts", poosts_path %>
+  <%= link_to "Edit this poost", edit_poost_path(@poost) %> |
+  <%= link_to "Back to poosts", poosts_path %>
   </div>
-  <%= button_to "Destroy this post", @post, method: :delete, class:"destroy" %>
+  <%= button_to "Destroy this poost", @poost, method: :delete, class:"destroy" %>
 
 </div>
 </body>

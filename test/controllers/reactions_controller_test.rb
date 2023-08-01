@@ -17,7 +17,7 @@ class ReactionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reaction" do
     assert_difference("Reaction.count") do
-      post reactions_url, params: { reaction: { kind: @reaction.kind, poost_id: @reaction.poost_id, usser_id: @reaction.usser_id } }
+      poost reactions_url, params: { reaction: { kind: @reaction.kind, poost_id: @reaction.poost_id, usser_id: @reaction.usser_id } }
     end
 
     assert_redirected_to reaction_url(Reaction.last)

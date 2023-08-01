@@ -1,10 +1,10 @@
 <%= form_with(model: poost) do |form| %>
   <% if poost.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(poost.errors.count, "error") %> prohibited this poost from being saved:</h2>
 
       <ul>
-        <% post.errors.each do |error| %>
+        <% poost.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
