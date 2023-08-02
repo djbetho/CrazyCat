@@ -5,29 +5,12 @@
 
 <%= render @poost %>
 
-<%= form_with(model: @comeent, local: true) do |f| %>
-<% if @comeent.errors.any? %>
-  <div id = 'error_explanation'>
-  <h2>Este comentario no se pudo crear por las siguientes
-  razones</h2>
-  <ul>
-    <% @comeent.errors.full_messages.each do |msg|%>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
- 
-  <%= form_with model: @poost.comeents.build do |form| %>
-    <%= form.text_field :poost_id, value: @poost_id%>
-    <%= form.text_field :comeents %>
-  <%= form.submit %>
-<% end %>
-
-<% end %>
 <%= render 'comeents/form' %>
 
  <div class="reaccion">
+  <!--  idealmente hay que pasar este kinds dentro del parcial adecuado, para que se
+        pueda reaccionar a cada comenario
+   -->
     <% Poost::Kinds.each do |kind| %>
       <%= button_to "#{Poost::KindsSpanish[kind]}",
          user_reaction_path(poost_id: @poost.id, reaction_type:

@@ -24,15 +24,13 @@ class ComeentsController < ApplicationController
 
   # POST /comeents or /comeents.json 
   def create
-
-
     @poost = Poost.find(params[:comeent][:poost_id])
-
     @comeent = Comeent.new(comeent_params)
+    @comeent.usser = current_usser # se define el usuario del comentario
 
     respond_to do |format|
       if @comeent.save
-        format.html { redirect_to comeent_url(@comeent), notice: "Comeent was successfully created." }
+        format.html { redirect_to comeents_url(@comeent), notice: "Comeent was successfully created." }
        else
         format.html { render :new, status: :unprocessable_entity }
        end
@@ -68,7 +66,8 @@ class ComeentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comeent_params
-      params.require(:comeent).permit(:content, :usser_id, :poost_id)
+      # Borré el user_id porque se trae con el current user la acción create (evitas params no deseados en la consulta)
+      params.require(:comeent).permit(:content, :poost_id)
       
     end
 end

@@ -18,8 +18,8 @@
  
 
   <div>
-    <%= form.hidden_field :poost_id, value: @poost %>
- 
+    <%= form.hidden_field :poost_id, value: @poost.id %>
+    <!-- acá no habíamos puesto el id del post, por eso daba un error -->
   </div>
 
   <div>
