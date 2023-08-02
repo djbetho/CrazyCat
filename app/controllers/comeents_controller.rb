@@ -33,7 +33,7 @@ class ComeentsController < ApplicationController
         format.html { redirect_to comeents_url(@comeent), notice: "Comeent was successfully created." }
        else
         format.html { render :new, status: :unprocessable_entity }
-       end
+      end
     end
   end
 
@@ -42,9 +42,9 @@ class ComeentsController < ApplicationController
     respond_to do |format|
       if @comeent.update(comeent_params)
         format.html { redirect_to comeent_url(@comeent), notice: "Comeent was successfully updated." }
-       else
+      else
         format.html { render :edit, status: :unprocessable_entity }
-       end
+      end
     end
   end
 
