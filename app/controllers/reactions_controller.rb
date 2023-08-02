@@ -3,7 +3,7 @@ class ReactionsController < ApplicationController
   before_action :authenticate_usser!, except: [:index, :show]
 
   def user_reaction
-    @user = current_usser
+    @usser = current_usser
     @type = params[:reaction_type]
     @poost = Poost.find(params[:poost_id]) if params[:poost_id]
     @comeent = Comeent.find(params[:comeent_id]) if params[:comeent_id]
@@ -11,7 +11,7 @@ class ReactionsController < ApplicationController
 
     respond_to do |format|
       if @type == "comeent"
-        reaction_comeent = Reaction.find_by(usser_id: @user, comeent_id: @comeent.id)
+        reaction_comeent = Reaction.find_by(usser_id: @usser, comeent_id: @comeent.id)
 
         if reaction_comeent
           format.html { redirect_to poost_path(@poost), notice: 'Reaccionaste a este comentario' }
@@ -24,11 +24,11 @@ class ReactionsController < ApplicationController
           end
         end
       elsif @type == "poost"
-        reaction_poost = Reaction.find_by(usser_id: @user.id, poost_id: @poost.id)
+        reaction_poost = Reaction.find_by(usser_id: @usser.id, poost_id: @poost.id)
         if reaction_poost
           format.html { redirect_to poost_path(@poost), notice: 'tu reaccionaste a este poost' }
         else
-          @reaction = Reaction.new(usser_id: @user.id, poost_id: @poost.id, reaction_type: @type, kind: @kind)
+          @reaction = Reaction.new(usser_id: @usser.id, poost_id: @poost.id, reaction_type: @type, kind: @kind)
           if @reaction.save
             format.html { redirect_to poost_path(@poost), notice: 'la reaccion a sido creada' }
           else
