@@ -22,6 +22,16 @@
                         <div class="ftr">
                             <div class="author">
                                 <%= link_to "VER POST", poost, class:"link" %>
+                                  <% Poost::Kinds.each do |kind| %>
+                                        <% if kind == 'like'%>
+                                              <i class="fa-regular fa-thumbs-up"></i>
+                                              <%= Reaction.where(kind: kind,poost_id: poost.id).count %>
+                                              
+                                            <% elsif kind == 'dislike'  %>
+                                            <i class="fa-regular fa-thumbs-down"></i>
+                                              <%= Reaction.where(kind: kind,poost_id: poost.id).count %>
+                                            <% end %>
+                                  <% end %>
                             </div>
                          </div>
                     </div>

@@ -23928,3 +23928,207 @@ Processing by PoostsController#show as HTML
 Completed 200 OK in 137ms (Views: 62.5ms | ActiveRecord: 14.5ms | Allocations: 23452)
 
 
+Started GET "/" for 127.0.0.1 at 2023-08-04 15:53:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PoostsController#index as HTML
+Completed 401 Unauthorized in 93ms (ActiveRecord: 0.0ms | Allocations: 2468)
+
+
+Started GET "/ussers/sign_in" for 127.0.0.1 at 2023-08-04 15:53:05 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 86.5ms | Allocations: 725)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 259.9ms | Allocations: 3559)
+  Rendered shared/_nabvar.html.erb (Duration: 55.8ms | Allocations: 670)
+  Rendered layout layouts/application.html.erb (Duration: 801.7ms | Allocations: 38222)
+Completed 200 OK in 970ms (Views: 905.4ms | ActiveRecord: 13.8ms | Allocations: 47933)
+
+
+Started POST "/ussers/sign_in" for 127.0.0.1 at 2023-08-04 15:53:24 -0400
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usser"=>{"email"=>"ru.bugueno@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsser Load (7.0ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."email" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["email", "ru.bugueno@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 726ms (ActiveRecord: 7.7ms | Allocations: 5580)
+
+
+Started GET "/" for 127.0.0.1 at 2023-08-04 15:53:25 -0400
+Processing by PoostsController#index as TURBO_STREAM
+  [1m[36mUsser Load (0.6ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."id" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering poosts/index.html.erb within layouts/application
+  [1m[36mPoost Load (4.0ms)[0m  [1m[34mSELECT "poosts".* FROM "poosts"[0m
+  ↳ app/views/poosts/index.html.erb:9
+  [1m[36mActiveStorage::Attachment Load (6.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (4.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  Rendered poosts/index.html.erb within layouts/application (Duration: 709.9ms | Allocations: 26619)
+  Rendered layout layouts/application.html.erb (Duration: 711.1ms | Allocations: 26708)
+Completed 500 Internal Server Error in 778ms (ActiveRecord: 30.6ms | Allocations: 31499)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    25:                                   <% Poost::Kinds.each do |kind| %>
+    26:                                         <% if kind == 'like'%>
+    27:                                               <i class="fa-regular fa-thumbs-up"></i>
+    28:                                               <%= Reaction.where(kind: kind,poost_id: @poost.id).count %>
+    29:                                               
+    30:                                             <% elsif kind == 'dislike'  %>
+    31:                                             <i class="fa-regular fa-thumbs-down"></i>
+  
+app/views/poosts/index.html.erb:28
+app/views/poosts/index.html.erb:25:in `each'
+app/views/poosts/index.html.erb:25
+app/views/poosts/index.html.erb:9
+Started GET "/ussers/sign_in" for 127.0.0.1 at 2023-08-04 15:53:40 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUsser Load (1.2ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."id" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 1.2ms | Allocations: 1602)
+
+
+Started GET "/" for 127.0.0.1 at 2023-08-04 15:53:40 -0400
+Processing by PoostsController#index as HTML
+  [1m[36mUsser Load (0.8ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."id" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering poosts/index.html.erb within layouts/application
+  [1m[36mPoost Load (0.8ms)[0m  [1m[34mSELECT "poosts".* FROM "poosts"[0m
+  ↳ app/views/poosts/index.html.erb:9
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  Rendered poosts/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 3617)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 3705)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.0ms | Allocations: 5357)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    25:                                   <% Poost::Kinds.each do |kind| %>
+    26:                                         <% if kind == 'like'%>
+    27:                                               <i class="fa-regular fa-thumbs-up"></i>
+    28:                                               <%= Reaction.where(kind: kind,poost_id: @poost.id).count %>
+    29:                                               
+    30:                                             <% elsif kind == 'dislike'  %>
+    31:                                             <i class="fa-regular fa-thumbs-down"></i>
+  
+app/views/poosts/index.html.erb:28
+app/views/poosts/index.html.erb:25:in `each'
+app/views/poosts/index.html.erb:25
+app/views/poosts/index.html.erb:9
+Started GET "/" for 127.0.0.1 at 2023-08-04 15:53:43 -0400
+Processing by PoostsController#index as HTML
+  [1m[36mUsser Load (0.8ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."id" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering poosts/index.html.erb within layouts/application
+  [1m[36mPoost Load (1.2ms)[0m  [1m[34mSELECT "poosts".* FROM "poosts"[0m
+  ↳ app/views/poosts/index.html.erb:9
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  Rendered poosts/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 3609)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 3697)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.5ms | Allocations: 5358)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    25:                                   <% Poost::Kinds.each do |kind| %>
+    26:                                         <% if kind == 'like'%>
+    27:                                               <i class="fa-regular fa-thumbs-up"></i>
+    28:                                               <%= Reaction.where(kind: kind,poost_id: @poost.id).count %>
+    29:                                               
+    30:                                             <% elsif kind == 'dislike'  %>
+    31:                                             <i class="fa-regular fa-thumbs-down"></i>
+  
+app/views/poosts/index.html.erb:28
+app/views/poosts/index.html.erb:25:in `each'
+app/views/poosts/index.html.erb:25
+app/views/poosts/index.html.erb:9
+Started GET "/" for 127.0.0.1 at 2023-08-04 15:54:31 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PoostsController#index as HTML
+  [1m[36mUsser Load (4.8ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."id" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering poosts/index.html.erb within layouts/application
+  [1m[36mPoost Load (3.7ms)[0m  [1m[34mSELECT "poosts".* FROM "poosts"[0m
+  ↳ app/views/poosts/index.html.erb:9
+  [1m[36mActiveStorage::Attachment Load (5.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (3.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mReaction Count (15.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "like"], ["poost_id", 1]]
+  ↳ app/views/poosts/index.html.erb:28
+  [1m[36mReaction Count (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "dislike"], ["poost_id", 1]]
+  ↳ app/views/poosts/index.html.erb:32
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mReaction Count (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "like"], ["poost_id", 2]]
+  ↳ app/views/poosts/index.html.erb:28
+  [1m[36mReaction Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "dislike"], ["poost_id", 2]]
+  ↳ app/views/poosts/index.html.erb:32
+  Rendered poosts/index.html.erb within layouts/application (Duration: 275.1ms | Allocations: 31416)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Usser"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_nabvar.html.erb:18
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_nabvar.html.erb:18
+  Rendered shared/_nabvar.html.erb (Duration: 17.0ms | Allocations: 3383)
+  Rendered layout layouts/application.html.erb (Duration: 542.5ms | Allocations: 69032)
+Completed 200 OK in 710ms (Views: 498.1ms | ActiveRecord: 72.0ms | Allocations: 86977)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0b3bb32f11be3e35ab2b71010568fac68fb2e718/licensed-image.jpg" for 127.0.0.1 at 2023-08-04 15:54:32 -0400
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--377e7e1ddf52e576c60860ad9a5037d886f6b4e7/persian.jpg" for 127.0.0.1 at 2023-08-04 15:54:32 -0400
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1e4ccba4451cdf05a83edbc4394787e5b25324d/descarga.jpg" for 127.0.0.1 at 2023-08-04 15:54:32 -0400
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0b3bb32f11be3e35ab2b71010568fac68fb2e718", "filename"=>"licensed-image"}
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (2.4ms) [0m[34mGenerated URL for file at key: gz0203ct9sp2gnxizfdnadai6bbp (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaM293TWpBelkzUTVjM0F5WjI1NGFYcG1aRzVoWkdGcE5tSmljQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14cFkyVnVjMlZrTFdsdFlXZGxMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbmJHbGpaVzV6WldRdGFXMWhaMlV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTA0VDE5OjU5OjMyLjQ1M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--2bf93b3ffe2b34364b183700a08842776cd7150c/licensed-image.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaM293TWpBelkzUTVjM0F5WjI1NGFYcG1aRzVoWkdGcE5tSmljQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14cFkyVnVjMlZrTFdsdFlXZGxMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbmJHbGpaVzV6WldRdGFXMWhaMlV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTA0VDE5OjU5OjMyLjQ1M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--2bf93b3ffe2b34364b183700a08842776cd7150c/licensed-image.jpg
+Completed 302 Found in 35ms (ActiveRecord: 0.6ms | Allocations: 2656)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaM293TWpBelkzUTVjM0F5WjI1NGFYcG1aRzVoWkdGcE5tSmljQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14cFkyVnVjMlZrTFdsdFlXZGxMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbmJHbGpaVzV6WldRdGFXMWhaMlV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTA0VDE5OjU5OjMyLjQ1M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--2bf93b3ffe2b34364b183700a08842776cd7150c/licensed-image.jpg" for 127.0.0.1 at 2023-08-04 15:54:32 -0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"licensed-image"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 258)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1e4ccba4451cdf05a83edbc4394787e5b25324d", "filename"=>"descarga"}
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--377e7e1ddf52e576c60860ad9a5037d886f6b4e7", "filename"=>"persian"}
+  [1m[36mActiveStorage::Blob Load (3.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (3.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[36m  Disk Storage (16.2ms) [0m[34mGenerated URL for file at key: r0agdk0t5clyeym5erzedprz4ghm (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjakJoWjJSck1IUTFZMng1WlhsdE5XVnllbVZrY0hKNk5HZG9iUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyTmhjbWRoTG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25aR1Z6WTJGeVoyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDgtMDRUMTk6NTk6MzMuMjAyWiIsInB1ciI6ImJsb2Jfa2V5In19--e7091ab0ee1b75e811dbf49ad32e9c585e0f8805/descarga.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjakJoWjJSck1IUTFZMng1WlhsdE5XVnllbVZrY0hKNk5HZG9iUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyTmhjbWRoTG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25aR1Z6WTJGeVoyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDgtMDRUMTk6NTk6MzMuMjAyWiIsInB1ciI6ImJsb2Jfa2V5In19--e7091ab0ee1b75e811dbf49ad32e9c585e0f8805/descarga.jpg
+Completed 302 Found in 146ms (ActiveRecord: 17.7ms | Allocations: 17114)
+
+
+[36m  Disk Storage (15.2ms) [0m[34mGenerated URL for file at key: uiqrtq0kb3o4x0qo2eut9v7sjg0g (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkV2x4Y25SeE1HdGlNMjgwZURCeGJ6SmxkWFE1ZGpkemFtY3dad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGNuTnBZVzR1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHdaWEp6YVdGdUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMy0wOC0wNFQxOTo1OTozMy4yMjBaIiwicHVyIjoiYmxvYl9rZXkifX0=--adde407927b63d6f65e473874fa69b4582f7e43a/persian.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkV2x4Y25SeE1HdGlNMjgwZURCeGJ6SmxkWFE1ZGpkemFtY3dad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGNuTnBZVzR1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHdaWEp6YVdGdUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMy0wOC0wNFQxOTo1OTozMy4yMjBaIiwicHVyIjoiYmxvYl9rZXkifX0=--adde407927b63d6f65e473874fa69b4582f7e43a/persian.jpg
+Completed 302 Found in 145ms (ActiveRecord: 17.1ms | Allocations: 17109)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjakJoWjJSck1IUTFZMng1WlhsdE5XVnllbVZrY0hKNk5HZG9iUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyTmhjbWRoTG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25aR1Z6WTJGeVoyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDgtMDRUMTk6NTk6MzMuMjAyWiIsInB1ciI6ImJsb2Jfa2V5In19--e7091ab0ee1b75e811dbf49ad32e9c585e0f8805/descarga.jpg" for 127.0.0.1 at 2023-08-04 15:54:33 -0400
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkV2x4Y25SeE1HdGlNMjgwZURCeGJ6SmxkWFE1ZGpkemFtY3dad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGNuTnBZVzR1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHdaWEp6YVdGdUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMy0wOC0wNFQxOTo1OTozMy4yMjBaIiwicHVyIjoiYmxvYl9rZXkifX0=--adde407927b63d6f65e473874fa69b4582f7e43a/persian.jpg" for 127.0.0.1 at 2023-08-04 15:54:33 -0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"descarga"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 259)
+
+
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"persian"}
+Completed 200 OK in 4ms (ActiveRecord: 0.0ms | Allocations: 259)
+
+
