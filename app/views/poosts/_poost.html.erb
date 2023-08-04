@@ -1,19 +1,21 @@
 <div id="<%= dom_id poost %>">
-
-
-  <p> 
-     <% if poost.image.persisted? %>
-     <%= image_tag poost.image , class:"foto-show"%>
-      <%end%>
-  </p>
-
-  <div>
-  <p class="titulo container w-50" >
-    <%= poost.title%>
-  </p>
-
-  <p class="descripcion container w-50">
-    <%= poost.description %>
-  </p>
-   </div>
-</div>
+    <div class="col-md-4">
+        <div class="blog-card blog-card-blog">
+            <div class="blog-card-image">
+                <a href="#">    
+                  <% if poost.image.persisted? %>
+                    <%= image_tag poost.image , width:"20%"%>
+                  <%end%>
+                </a>
+                <div class="ripple-cont"></div>
+            </div>
+                  <div class="blog-table">
+                      <h4 class="blog-card-caption">
+                          <a href="#"><%= poost.title%></a>
+                      </h4>
+                      <p class="blog-card-description"><%= poost.description %></p>
+                      <div class="ftr">
+                          <div class="author">
+                          </div>
+                       </div>
+                  </div>

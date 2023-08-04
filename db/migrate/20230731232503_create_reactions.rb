@@ -6,7 +6,7 @@ class CreateReactions < ActiveRecord::Migration[7.0]
 
       # se elimina la necesidad que la relación no sea nula en comeent y en poost
       t.references :comeent, foreign_key: true
-      t.references :usser, null: false, foreign_key: true
+      t.references :usser,  foreign_key: true
       t.references :poost, foreign_key: true
 
       t.timestamps

@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_233450) do
     t.string "kind"
     t.string "reaction_type"
     t.bigint "comeent_id"
-    t.bigint "usser_id", null: false
+    t.bigint "usser_id"
     t.bigint "poost_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

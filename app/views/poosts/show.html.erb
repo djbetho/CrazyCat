@@ -1,15 +1,32 @@
 <body class= "show-body">
   
-
 <p style="color: green"><%= notice %></p>
 
+ 
 <%= render @poost %>
+ 
 
-<div class="reaccion">
+
+<div class="reaccion ">
   <% Poost::Kinds.each do |kind| %>
-    <%= button_to "#{Poost::KindsSpanish[kind]}",
-        user_reaction_path(poost_id: @poost.id, reaction_type:
-    "poost", kind: kind), method: :poost %>
+
+     
+
+
+    <% if kind == 'like'%>
+      <i class="fa-regular fa-thumbs-up"></i>
+      <%= Reaction.where(kind: kind,poost_id: @poost.id).count %>
+      
+    <%= button_to "#{Poost::KindsSpanish[kind]}", user_reaction_path(usser: current_usser,poost_id: @poost.id, reaction_type:"post", kind: kind), method: :post %>
+
+    <% elsif kind == 'dislike'  %>
+     <i class="fa-regular fa-thumbs-down"></i>
+      <%= Reaction.where(kind: kind,poost_id: @poost.id).count %>
+    <%= button_to "#{Poost::KindsSpanish[kind]}", user_reaction_path(usser: current_usser,poost_id: @poost.id, reaction_type:"post", kind: kind), method: :post%>
+    <% end %>
+  
+  <%# insertar icono de like y dislike  %>
+  
   <% end %>
 </div>
 
@@ -28,5 +45,8 @@
   </div>
   <%= button_to "Destroy this poost", @poost, method: :delete, class:"destroy" %>
 
+</div>
+        </div>
+    </div>
 </div>
 </body>

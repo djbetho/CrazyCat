@@ -1,5 +1,6 @@
 class ComeentsController < ApplicationController
   before_action :set_comeent, only: %i[ show edit update destroy ]
+  before_action :authenticate_usser!
 
   # GET /comeents or /comeents.json
   def index

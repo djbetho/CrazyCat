@@ -1,18 +1,30 @@
-<div class="home">
+ 
 
+
+<h1>Crazy Cat</h1>
+<div class="container">
+  <div class="row">
     <% @poosts.each do |poost| %>
-      <div class="card mb-3 tarjeta" style="max-width: 1200px;">
-        <div class="row g-0 tarjeta2">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"><%= poost.title %></h5>
-              <p class="card-text"><%= poost.description %></p>
-              <p><%= link_to "VER POST", poost, class:"link" %></p>
-            </div>
-          </div>
-        </div>
-      </div>
+              <div class="col-md-4">
+                  <div class="blog-card blog-card-blog">
+                    <div class="blog-card-image">
+                        <a href="#"> <%= image_tag poost.image, class: "img-fluid rounded-start foto" ,width:"20%"%> </a>
+                        <div class="ripple-cont"></div>
+                    </div>
+                    <div class="blog-table">
+                        
+                        <h4 class="blog-card-caption">
+                            <a href="#"><%= poost.title %></a>
+                        </h4>
+                        <p class="blog-card-description"><%= poost.description %></p>
+                        <div class="ftr">
+                            <div class="author">
+                                <%= link_to "VER POST", poost, class:"link" %>
+                            </div>
+                         </div>
+                    </div>
+                  </div>
+              </div>
     <% end %>
+  </div>
 </div>
