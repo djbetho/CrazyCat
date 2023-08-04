@@ -1,5 +1,6 @@
 class PoostsController < ApplicationController
   before_action :set_poost, only: %i[ show edit update destroy ]
+  before_action :authenticate_usser!
 
   # GET /poosts or /poosts.json
   def index
