@@ -16,5 +16,5 @@ class Usser < ApplicationRecord
 
   
  
-
+  validates :avatar, presence: true 
 end

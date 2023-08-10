@@ -24132,3 +24132,673 @@ Processing by ActiveStorage::DiskController#show as JPEG
 Completed 200 OK in 4ms (ActiveRecord: 0.0ms | Allocations: 259)
 
 
+Started GET "/" for 127.0.0.1 at 2023-08-09 23:21:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PoostsController#index as HTML
+Completed 401 Unauthorized in 103ms (ActiveRecord: 0.0ms | Allocations: 2547)
+
+
+Started GET "/ussers/sign_in" for 127.0.0.1 at 2023-08-09 23:21:29 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 88.0ms | Allocations: 725)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 325.1ms | Allocations: 3559)
+  Rendered shared/_nabvar.html.erb (Duration: 71.5ms | Allocations: 673)
+  Rendered layout layouts/application.html.erb (Duration: 1154.0ms | Allocations: 38301)
+Completed 200 OK in 1477ms (Views: 1348.3ms | ActiveRecord: 21.4ms | Allocations: 48066)
+
+
+Started POST "/ussers/sign_in" for 127.0.0.1 at 2023-08-09 23:21:42 -0400
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usser"=>{"email"=>"ru.bugueno@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsser Load (5.6ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."email" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["email", "ru.bugueno@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 372ms (ActiveRecord: 6.0ms | Allocations: 5662)
+
+
+Started GET "/" for 127.0.0.1 at 2023-08-09 23:21:43 -0400
+Processing by PoostsController#index as TURBO_STREAM
+  [1m[36mUsser Load (0.4ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."id" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering poosts/index.html.erb within layouts/application
+  [1m[36mPoost Load (2.7ms)[0m  [1m[34mSELECT "poosts".* FROM "poosts"[0m
+  ↳ app/views/poosts/index.html.erb:9
+  [1m[36mActiveStorage::Attachment Load (3.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (3.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mReaction Count (4.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "like"], ["poost_id", 1]]
+  ↳ app/views/poosts/index.html.erb:28
+  [1m[36mReaction Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "dislike"], ["poost_id", 1]]
+  ↳ app/views/poosts/index.html.erb:32
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mReaction Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "like"], ["poost_id", 2]]
+  ↳ app/views/poosts/index.html.erb:28
+  [1m[36mReaction Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "dislike"], ["poost_id", 2]]
+  ↳ app/views/poosts/index.html.erb:32
+  Rendered poosts/index.html.erb within layouts/application (Duration: 457.3ms | Allocations: 31054)
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Usser"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_nabvar.html.erb:18
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_nabvar.html.erb:18
+  Rendered shared/_nabvar.html.erb (Duration: 6.3ms | Allocations: 2905)
+  Rendered layout layouts/application.html.erb (Duration: 472.4ms | Allocations: 36291)
+Completed 200 OK in 504ms (Views: 442.3ms | ActiveRecord: 33.2ms | Allocations: 41170)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1e4ccba4451cdf05a83edbc4394787e5b25324d/descarga.jpg" for 127.0.0.1 at 2023-08-09 23:21:43 -0400
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0b3bb32f11be3e35ab2b71010568fac68fb2e718/licensed-image.jpg" for 127.0.0.1 at 2023-08-09 23:21:43 -0400
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--377e7e1ddf52e576c60860ad9a5037d886f6b4e7/persian.jpg" for 127.0.0.1 at 2023-08-09 23:21:43 -0400
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0b3bb32f11be3e35ab2b71010568fac68fb2e718", "filename"=>"licensed-image"}
+  [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (1.6ms) [0m[34mGenerated URL for file at key: gz0203ct9sp2gnxizfdnadai6bbp (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaM293TWpBelkzUTVjM0F5WjI1NGFYcG1aRzVoWkdGcE5tSmljQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14cFkyVnVjMlZrTFdsdFlXZGxMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbmJHbGpaVzV6WldRdGFXMWhaMlV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTEwVDAzOjI2OjQ0LjAyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--c71679032b6f0f6397e34b5524ce7cd5f54c31fc/licensed-image.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaM293TWpBelkzUTVjM0F5WjI1NGFYcG1aRzVoWkdGcE5tSmljQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14cFkyVnVjMlZrTFdsdFlXZGxMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbmJHbGpaVzV6WldRdGFXMWhaMlV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTEwVDAzOjI2OjQ0LjAyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--c71679032b6f0f6397e34b5524ce7cd5f54c31fc/licensed-image.jpg
+Completed 302 Found in 31ms (ActiveRecord: 1.1ms | Allocations: 2565)
+
+
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--377e7e1ddf52e576c60860ad9a5037d886f6b4e7", "filename"=>"persian"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[36m  Disk Storage (1.0ms) [0m[34mGenerated URL for file at key: uiqrtq0kb3o4x0qo2eut9v7sjg0g (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkV2x4Y25SeE1HdGlNMjgwZURCeGJ6SmxkWFE1ZGpkemFtY3dad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGNuTnBZVzR1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHdaWEp6YVdGdUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMy0wOC0xMFQwMzoyNjo0NC4wNDZaIiwicHVyIjoiYmxvYl9rZXkifX0=--64b2320d96d8492308c9bd76d3300ef9c821c10d/persian.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkV2x4Y25SeE1HdGlNMjgwZURCeGJ6SmxkWFE1ZGpkemFtY3dad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGNuTnBZVzR1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHdaWEp6YVdGdUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMy0wOC0xMFQwMzoyNjo0NC4wNDZaIiwicHVyIjoiYmxvYl9rZXkifX0=--64b2320d96d8492308c9bd76d3300ef9c821c10d/persian.jpg
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms | Allocations: 1491)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaM293TWpBelkzUTVjM0F5WjI1NGFYcG1aRzVoWkdGcE5tSmljQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14cFkyVnVjMlZrTFdsdFlXZGxMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbmJHbGpaVzV6WldRdGFXMWhaMlV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTEwVDAzOjI2OjQ0LjAyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--c71679032b6f0f6397e34b5524ce7cd5f54c31fc/licensed-image.jpg" for 127.0.0.1 at 2023-08-09 23:21:44 -0400
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkV2x4Y25SeE1HdGlNMjgwZURCeGJ6SmxkWFE1ZGpkemFtY3dad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGNuTnBZVzR1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHdaWEp6YVdGdUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMy0wOC0xMFQwMzoyNjo0NC4wNDZaIiwicHVyIjoiYmxvYl9rZXkifX0=--64b2320d96d8492308c9bd76d3300ef9c821c10d/persian.jpg" for 127.0.0.1 at 2023-08-09 23:21:44 -0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"licensed-image"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 265)
+
+
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"persian"}
+Completed 200 OK in 5ms (ActiveRecord: 0.0ms | Allocations: 162)
+
+
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c1e4ccba4451cdf05a83edbc4394787e5b25324d", "filename"=>"descarga"}
+  [1m[36mActiveStorage::Blob Load (2.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (8.7ms) [0m[34mGenerated URL for file at key: r0agdk0t5clyeym5erzedprz4ghm (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjakJoWjJSck1IUTFZMng1WlhsdE5XVnllbVZrY0hKNk5HZG9iUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyTmhjbWRoTG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25aR1Z6WTJGeVoyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDgtMTBUMDM6MjY6NDQuMjk4WiIsInB1ciI6ImJsb2Jfa2V5In19--8606c9b49a5a0ae52d6b504cbda606faeb5414d9/descarga.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjakJoWjJSck1IUTFZMng1WlhsdE5XVnllbVZrY0hKNk5HZG9iUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyTmhjbWRoTG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25aR1Z6WTJGeVoyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDgtMTBUMDM6MjY6NDQuMjk4WiIsInB1ciI6ImJsb2Jfa2V5In19--8606c9b49a5a0ae52d6b504cbda606faeb5414d9/descarga.jpg
+Completed 302 Found in 97ms (ActiveRecord: 9.0ms | Allocations: 17151)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjakJoWjJSck1IUTFZMng1WlhsdE5XVnllbVZrY0hKNk5HZG9iUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyTmhjbWRoTG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25aR1Z6WTJGeVoyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDgtMTBUMDM6MjY6NDQuMjk4WiIsInB1ciI6ImJsb2Jfa2V5In19--8606c9b49a5a0ae52d6b504cbda606faeb5414d9/descarga.jpg" for 127.0.0.1 at 2023-08-09 23:21:44 -0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"descarga"}
+Completed 200 OK in 4ms (ActiveRecord: 0.0ms | Allocations: 259)
+
+
+Started GET "/" for 127.0.0.1 at 2023-08-09 23:21:52 -0400
+Processing by PoostsController#index as HTML
+  [1m[36mUsser Load (2.7ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."id" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering poosts/index.html.erb within layouts/application
+  [1m[36mPoost Load (1.8ms)[0m  [1m[34mSELECT "poosts".* FROM "poosts"[0m
+  ↳ app/views/poosts/index.html.erb:9
+  [1m[36mActiveStorage::Attachment Load (3.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mReaction Count (5.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "like"], ["poost_id", 1]]
+  ↳ app/views/poosts/index.html.erb:28
+  [1m[36mReaction Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "dislike"], ["poost_id", 1]]
+  ↳ app/views/poosts/index.html.erb:32
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Poost"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/poosts/index.html.erb:13
+  [1m[36mReaction Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "like"], ["poost_id", 2]]
+  ↳ app/views/poosts/index.html.erb:28
+  [1m[36mReaction Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "reactions" WHERE "reactions"."kind" = $1 AND "reactions"."poost_id" = $2[0m  [["kind", "dislike"], ["poost_id", 2]]
+  ↳ app/views/poosts/index.html.erb:32
+  Rendered poosts/index.html.erb within layouts/application (Duration: 150.0ms | Allocations: 21633)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Usser"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_nabvar.html.erb:18
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_nabvar.html.erb:18
+  Rendered shared/_nabvar.html.erb (Duration: 11.8ms | Allocations: 3381)
+  Rendered layout layouts/application.html.erb (Duration: 381.4ms | Allocations: 58527)
+Completed 200 OK in 445ms (Views: 362.4ms | ActiveRecord: 31.9ms | Allocations: 71937)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaM293TWpBelkzUTVjM0F5WjI1NGFYcG1aRzVoWkdGcE5tSmljQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14cFkyVnVjMlZrTFdsdFlXZGxMbXB3WnlJN0lHWnBiR1Z1WVcxbEtqMVZWRVl0T0NjbmJHbGpaVzV6WldRdGFXMWhaMlV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmFuQmxad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIzLTA4LTEwVDAzOjI2OjQ0LjAyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--c71679032b6f0f6397e34b5524ce7cd5f54c31fc/licensed-image.jpg" for 127.0.0.1 at 2023-08-09 23:21:53 -0400
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjakJoWjJSck1IUTFZMng1WlhsdE5XVnllbVZrY0hKNk5HZG9iUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyTmhjbWRoTG1wd1p5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25aR1Z6WTJGeVoyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2YW5CbFp3WTdCbFE2RVhObGNuWnBZMlZmYm1GdFpUb0tiRzlqWVd3PSIsImV4cCI6IjIwMjMtMDgtMTBUMDM6MjY6NDQuMjk4WiIsInB1ciI6ImJsb2Jfa2V5In19--8606c9b49a5a0ae52d6b504cbda606faeb5414d9/descarga.jpg" for 127.0.0.1 at 2023-08-09 23:21:53 -0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"licensed-image"}
+Completed 304 Not Modified in 3ms (ActiveRecord: 0.0ms | Allocations: 154)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkV2x4Y25SeE1HdGlNMjgwZURCeGJ6SmxkWFE1ZGpkemFtY3dad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5CbGNuTnBZVzR1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHdaWEp6YVdGdUxtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMy0wOC0xMFQwMzoyNjo0NC4wNDZaIiwicHVyIjoiYmxvYl9rZXkifX0=--64b2320d96d8492308c9bd76d3300ef9c821c10d/persian.jpg" for 127.0.0.1 at 2023-08-09 23:21:53 -0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"descarga"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"persian"}
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.0ms | Allocations: 313)
+
+
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.0ms | Allocations: 301)
+
+
+Started DELETE "/ussers/sign_out" for 127.0.0.1 at 2023-08-09 23:21:55 -0400
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUsser Load (0.5ms)[0m  [1m[34mSELECT "ussers".* FROM "ussers" WHERE "ussers"."id" = $1 ORDER BY "ussers"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 60ms (ActiveRecord: 0.5ms | Allocations: 2796)
+
+
+Started GET "/" for 127.0.0.1 at 2023-08-09 23:21:55 -0400
+Processing by PoostsController#index as TURBO_STREAM
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started GET "/ussers/sign_in" for 127.0.0.1 at 2023-08-09 23:21:55 -0400
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 132)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1213)
+  Rendered shared/_nabvar.html.erb (Duration: 0.5ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 3602)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 4293)
+
+
+Started GET "/ussers/sign_up" for 127.0.0.1 at 2023-08-09 23:22:00 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 15.9ms | Allocations: 234)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 155)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 37.6ms | Allocations: 3135)
+  Rendered shared/_nabvar.html.erb (Duration: 0.4ms | Allocations: 207)
+  Rendered layout layouts/application.html.erb (Duration: 44.7ms | Allocations: 5585)
+Completed 200 OK in 48ms (Views: 46.6ms | ActiveRecord: 0.0ms | Allocations: 6752)
+
+
+Started GET "/ussers/sign_up" for 127.0.0.1 at 2023-08-09 23:23:51 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1978)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2083)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 7.6ms | Allocations: 14093)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>   
+  
+   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+     <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, autocomplete: "avatar", class:"form-control"  :placeholder => 'avatar' {:required => true} %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+ 
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:      <div class="field">
+6:        <%= f.label :name %><br />
+7:        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+8:      </div>
+9:      <div class="field">
+10:        <%= f.label :nickname %><br />
+11:        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+12:      </div>   
+13:      
+14:       <div class="field">
+15:        <%= f.label :email %><br />
+16:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+17:      </div>
+18:      
+19:         <div class="field">
+20:        <%= f.label :avatar %><br />
+21:        <%= f.file_field :avatar, autocomplete: "avatar", class:"form-control"  :placeholder => 'avatar' {:required => true} %>
+22:      </div>
+23:      
+24:      <div class="field">
+25:        <%= f.label :password %>
+26:        <% if @minimum_password_length %>
+27:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+28:        <% end %><br />
+29:        <%= f.password_field :password, autocomplete: "new-password" %>
+30:      </div>
+31:    
+32:      <div class="field">
+33:        <%= f.label :password_confirmation %><br />
+34:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+35:      </div>
+36:     
+37:    
+38:      <div class="actions">
+39:        <%= f.submit "Sign up" %>
+40:      </div>
+41:    <% end %>
+42:    
+43:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ':', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ':', expecting ')'
+Started GET "/ussers/sign_up" for 127.0.0.1 at 2023-08-09 23:24:04 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1488)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1578)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2854)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>   
+  
+   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+     <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, autocomplete: "avatar", class:"form-control" , :placeholder => 'avatar' {:required => true} %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+ 
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:      <div class="field">
+6:        <%= f.label :name %><br />
+7:        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+8:      </div>
+9:      <div class="field">
+10:        <%= f.label :nickname %><br />
+11:        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+12:      </div>   
+13:      
+14:       <div class="field">
+15:        <%= f.label :email %><br />
+16:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+17:      </div>
+18:      
+19:         <div class="field">
+20:        <%= f.label :avatar %><br />
+21:        <%= f.file_field :avatar, autocomplete: "avatar", class:"form-control" , :placeholder => 'avatar' {:required => true} %>
+22:      </div>
+23:      
+24:      <div class="field">
+25:        <%= f.label :password %>
+26:        <% if @minimum_password_length %>
+27:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+28:        <% end %><br />
+29:        <%= f.password_field :password, autocomplete: "new-password" %>
+30:      </div>
+31:    
+32:      <div class="field">
+33:        <%= f.label :password_confirmation %><br />
+34:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+35:      </div>
+36:     
+37:    
+38:      <div class="actions">
+39:        <%= f.submit "Sign up" %>
+40:      </div>
+41:    <% end %>
+42:    
+43:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+Started GET "/ussers/sign_up" for 127.0.0.1 at 2023-08-09 23:24:21 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1487)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 1577)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 2854)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>   
+  
+   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+     <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, autocomplete: "avatar",  :placeholder => 'avatar' {:required => true},class:"form-control" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+ 
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:      <div class="field">
+6:        <%= f.label :name %><br />
+7:        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+8:      </div>
+9:      <div class="field">
+10:        <%= f.label :nickname %><br />
+11:        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+12:      </div>   
+13:      
+14:       <div class="field">
+15:        <%= f.label :email %><br />
+16:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+17:      </div>
+18:      
+19:         <div class="field">
+20:        <%= f.label :avatar %><br />
+21:        <%= f.file_field :avatar, autocomplete: "avatar",  :placeholder => 'avatar' {:required => true},class:"form-control" %>
+22:      </div>
+23:      
+24:      <div class="field">
+25:        <%= f.label :password %>
+26:        <% if @minimum_password_length %>
+27:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+28:        <% end %><br />
+29:        <%= f.password_field :password, autocomplete: "new-password" %>
+30:      </div>
+31:    
+32:      <div class="field">
+33:        <%= f.label :password_confirmation %><br />
+34:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+35:      </div>
+36:     
+37:    
+38:      <div class="actions">
+39:        <%= f.submit "Sign up" %>
+40:      </div>
+41:    <% end %>
+42:    
+43:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected '{', expecting ')'
+Started GET "/ussers/sign_up" for 127.0.0.1 at 2023-08-09 23:24:45 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1977)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 2082)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 7.2ms | Allocations: 14093)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>   
+  
+   <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+     <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, autocomplete: "avatar",   {:required => true},class:"form-control" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+ 
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+):
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:      <div class="field">
+6:        <%= f.label :name %><br />
+7:        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+8:      </div>
+9:      <div class="field">
+10:        <%= f.label :nickname %><br />
+11:        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+12:      </div>   
+13:      
+14:       <div class="field">
+15:        <%= f.label :email %><br />
+16:        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+17:      </div>
+18:      
+19:         <div class="field">
+20:        <%= f.label :avatar %><br />
+21:        <%= f.file_field :avatar, autocomplete: "avatar",   {:required => true},class:"form-control" %>
+22:      </div>
+23:      
+24:      <div class="field">
+25:        <%= f.label :password %>
+26:        <% if @minimum_password_length %>
+27:        <em>(<%= @minimum_password_length %> characters minimum)</em>
+28:        <% end %><br />
+29:        <%= f.password_field :password, autocomplete: "new-password" %>
+30:      </div>
+31:    
+32:      <div class="field">
+33:        <%= f.label :password_confirmation %><br />
+34:        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+35:      </div>
+36:     
+37:    
+38:      <div class="actions">
+39:        <%= f.submit "Sign up" %>
+40:      </div>
+41:    <% end %>
+42:    
+43:    <%= render "devise/shared/links" %>
+  
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ',', expecting =>
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ',', expecting =>
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ',', expecting =>
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ',', expecting =>
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ',', expecting =>
+app/views/devise/registrations/new.html.erb:21: syntax error, unexpected ',', expecting =>
+Started GET "/ussers/sign_up" for 127.0.0.1 at 2023-08-09 23:28:46 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.7ms | Allocations: 238)
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 607)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 42.6ms | Allocations: 12709)
+  Rendered shared/_nabvar.html.erb (Duration: 1.6ms | Allocations: 704)
+  Rendered layout layouts/application.html.erb (Duration: 150.8ms | Allocations: 46859)
+Completed 200 OK in 159ms (Views: 157.2ms | ActiveRecord: 0.0ms | Allocations: 48200)
+
+
+Started POST "/ussers" for 127.0.0.1 at 2023-08-09 23:29:04 -0400
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usser"=>{"name"=>"fsd", "nickname"=>"fds", "email"=>"correo@correo.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "ussers" WHERE "ussers"."email" = $1 LIMIT $2[0m  [["email", "correo@correo.cl"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.4ms | Allocations: 1277)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 4756)
+  Rendered shared/_nabvar.html.erb (Duration: 0.4ms | Allocations: 187)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 7144)
+Completed 422 Unprocessable Entity in 275ms (Views: 18.3ms | ActiveRecord: 13.5ms | Allocations: 18350)
+
+
+Started POST "/ussers" for 127.0.0.1 at 2023-08-09 23:29:14 -0400
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usser"=>{"name"=>"fsd", "nickname"=>"fds", "email"=>"correo@correo.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "ussers" WHERE "ussers"."email" = $1 LIMIT $2[0m  [["email", "correo@correo.cl"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 388)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2788)
+  Rendered shared/_nabvar.html.erb (Duration: 0.3ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 5174)
+Completed 422 Unprocessable Entity in 228ms (Views: 10.2ms | ActiveRecord: 1.1ms | Allocations: 10425)
+
+
+Started GET "/" for 127.0.0.1 at 2023-08-09 23:30:38 -0400
+Processing by PoostsController#index as HTML
+Completed 401 Unauthorized in 5ms (Allocations: 1224)
+
+
+Started GET "/ussers/sign_in" for 127.0.0.1 at 2023-08-09 23:30:39 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 721)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 19.1ms | Allocations: 3221)
+  Rendered shared/_nabvar.html.erb (Duration: 1.9ms | Allocations: 635)
+  Rendered layout layouts/application.html.erb (Duration: 47.1ms | Allocations: 17718)
+Completed 200 OK in 110ms (Views: 49.8ms | ActiveRecord: 10.6ms | Allocations: 24862)
+
+
